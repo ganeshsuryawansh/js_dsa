@@ -180,6 +180,82 @@ class Linkedlist {
 
     }
 
+    sort() {
+        var current = this.head;
+        while (current != null) {
+            var current1 = current.next;
+            while (current.data > current1.data) {
+                if (current.data > current1.data) {
+                    var t = current.data;
+                    current.data = current1.data;
+                    current1.data = t;
+                }
+                current1 = current1.next
+            }
+            current = current.next
+        }
+    }
+
+    Sorted_mearge() {
+        var a = this.head, b = this.head1, result = null, temp;
+        var newnode;
+        if (a == null) {
+            return b;
+        } else {
+            if (b == null) {
+                return a;
+            } else {
+
+                while (a != null && b != null) {
+                    if (a.data < b.data) {
+                        newnode = new LLNode(a.data);
+                        a = a.next;
+                    } else {
+                        newnode = new LLNode(b.data);
+                        b = b.next;
+                    }
+
+                    if (result == null) {
+                        result = temp = newnode;
+                    } else {
+                        temp.next = newnode;
+                        temp = temp.next;
+                    }
+                }
+
+                if (a != null) {
+                    temp.next = a;
+
+                    if (b != null) {
+                        temp.next
+                    }
+                }
+            }
+        }
+    }
+
+    getfirst() {
+        return this.head;
+    }
+
+    getlast() {
+        let lastnode = this.head;
+
+        while (lastnode.next != null) {
+            lastnode = lastnode.next;
+        }
+        return lastnode.data;
+    }
+
+    sum() {
+        var sum = 0;
+        var p = this.head;
+        while (p != null) {
+            sum = sum + p.data;
+            p = p.next;
+        }
+        console.log("Sum of all elements is: " + sum);
+    }
 }
 
 let a = new Linkedlist();
@@ -189,18 +265,27 @@ a.InseartFront(23);
 a.InseartFront(24);
 a.InseartFront(25);
 a.InseartFront(26);
+a.InseartFront(288);
+a.InseartFront(2)
+
+
 
 // a.Inseart_at_given_position(100, 2);
 // a.delete_end();
 // a.Delete_at_given_position(2)
 
 // a.reverse();
-
-a.display();
-a.length()
-a.Search(25);
+// a.sort();
+// a.display();
+// console.log(a.getfirst())
+// console.log("hello");
+// a.length()
+// a.Search(25);
 
 // a.delete_front();
 // a.display();
 
+// console.log(a.getlast());
 
+
+a.sum()
